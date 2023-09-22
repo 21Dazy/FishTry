@@ -208,7 +208,7 @@ class Myzoo:
         
         
 
-'''
+----------------------------------------------------------------
 from flask import Flask,render_template,request
 
 app = Flask(__name__)
@@ -223,16 +223,41 @@ def partition():
     return render_template("part.html")
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=8080)        
+'''  
         
-
+import requests
+import json
+url="http://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=keyword"
+headers={'User-Agent':
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
+city=input("请输入\n")
+param={"op":"keyword","cname":"","pid":"","keyword":city,"pageIndex":1,"pageSize":10}
+response=requests.post(url=url,headers=headers,data=param)
+page_json=response.text
+with open("bili.txt","w+",encoding="utf-8") as fp:
+    fp.write(page_json)
     
-        
-    
+print("duquwanbi")
 
+
+
+'''        
+-------------------------------------------------------------------------    
+
+
+import random
+
+while True:
+    ty=input("真心话还是大冒险:\n")
+    content=input("内容是:")
+    with open("content.txt","w+",encoding="utf-8") as fp:
+        fp.write()
+    
+    
         
             
 
-        
+'''        
     
 
 
